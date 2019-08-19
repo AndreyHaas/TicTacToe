@@ -1,34 +1,17 @@
 package com.nsk.haas.andy.base;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class Field {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Field.class);
+    private static final int SIDE_SIZE = 3;
+    private static final String DRAW_PLAYING_FIELD_LINE = "    |    |    ";
+    private static final String SEPARATOR_UNDERLINE = "--------------";
 
-    private Field() {
-    }
+    private String[][] gameField = new String[SIDE_SIZE][SIDE_SIZE];
 
-    public static char[][] init() {
-        char fieldWidth = 0;
-        char fieldHeight = 0;
-
-        BufferedReader width = new BufferedReader(new InputStreamReader(System.in));
-        BufferedReader height = new BufferedReader(new InputStreamReader(System.in));
-
-        try {
-            System.out.println("Введите цифровое значение высоты игрового поля:");
-            fieldWidth = (char) width.read();
-            System.out.println("Введите цифровое значение ширины игрового поля:");
-            fieldHeight = (char) height.read();
-        } catch (IOException e) {
-            LOGGER.info("Не удалось считать значение", e);
-        }
-
-        return new char[fieldHeight][fieldWidth];
+    public void drawInitField() {
+        System.out.println(DRAW_PLAYING_FIELD_LINE);
+        System.out.println(SEPARATOR_UNDERLINE);
+        System.out.println(DRAW_PLAYING_FIELD_LINE);
+        System.out.println(SEPARATOR_UNDERLINE);
+        System.out.println(DRAW_PLAYING_FIELD_LINE);
     }
 }
