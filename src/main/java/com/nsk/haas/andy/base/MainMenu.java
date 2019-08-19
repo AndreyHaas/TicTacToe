@@ -21,13 +21,14 @@ public class MainMenu {
 
         switch (playerSelectedNumber) {
             case 1:
-                System.out.println("Game against computer is selected. The game has begun!");
+                System.out.println("Game mode against computer is selected. The game has begun!");
                 mode.playerWithPcMode();
                 break;
 
             case 2:
-                System.out.println("Game player vs. player is selected. The game has begun!");
-                mode.playerWithPlayerMode();
+                System.out.println("Game mode player vs. player is selected.");
+                System.out.println("Currently the mode is not yet implemented! Sorry!");
+                // mode.playerWithPlayerMode();
                 break;
 
             case 3:
