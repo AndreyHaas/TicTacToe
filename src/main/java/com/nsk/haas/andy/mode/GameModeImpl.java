@@ -1,6 +1,6 @@
 package com.nsk.haas.andy.mode;
 
-public class GameModeImpl implements Mode {
+public class GameModeImpl implements GameMode {
 
     @Override
     public void playerWithPcMode() {
