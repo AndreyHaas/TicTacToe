@@ -8,10 +8,12 @@ public class Field {
     private String[][] gameField = new String[SIDE_SIZE][SIDE_SIZE];
 
     public void drawInitField() {
-        System.out.println(DRAW_PLAYING_FIELD_LINE);
-        System.out.println(SEPARATOR_UNDERLINE);
-        System.out.println(DRAW_PLAYING_FIELD_LINE);
-        System.out.println(SEPARATOR_UNDERLINE);
-        System.out.println(DRAW_PLAYING_FIELD_LINE);
+        for (int i = -1; i <= SIDE_SIZE; i++) {
+            if (i % 2 != 0) {
+                System.out.println(DRAW_PLAYING_FIELD_LINE);
+            } else {
+                System.out.println(SEPARATOR_UNDERLINE);
+            }
+        }
     }
 }
