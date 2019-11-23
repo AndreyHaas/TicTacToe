@@ -6,7 +6,7 @@ import static com.nsk.haas.andy.level.Level.aiLevel;
 import static com.nsk.haas.andy.mode.Mode.modeTwoPlayers;
 
 public class Menu {
-    public static void mainMenu() {
+    public void startGame() {
         System.out.println("Выберите режим игры: ");
         System.out.println("1. Игра против компьютера.");
         System.out.println("2. 2 игрока.");

@@ -1,10 +1,12 @@
 package com.nsk.haas.andy.level;
 
+import com.nsk.haas.andy.base.Base;
+import com.nsk.haas.andy.menu.Menu;
+
 import java.util.Random;
 import java.util.Scanner;
 
 import static com.nsk.haas.andy.base.Base.*;
-import static com.nsk.haas.andy.menu.Menu.mainMenu;
 import static com.nsk.haas.andy.mode.Mode.modeAgainstAI;
 
 public class Level {
@@ -39,7 +41,7 @@ public class Level {
                 break;
             }
             case 4: {
-                mainMenu();
+                new Menu().startGame();
                 break;
             }
             case 5: {
@@ -57,7 +59,7 @@ public class Level {
         int y = -1;
         boolean aiWin = false;
         boolean userWin = false;
-        // Находим выигрышный ход
+        // Ищем выигрышный ход
         if (aiLevel == 2) {
             for (int i = 0; i < DIMENSION; i++) {
                 for (int j = 0; j < DIMENSION; j++) {
@@ -73,7 +75,7 @@ public class Level {
                 }
             }
         }
-        // Блокировка хода пользователя, если он побеждает на следующем ходу
+        // Блокируем ход пользователя, если он побеждает на следующем ходу
         if (aiLevel > 0) {
             if (!aiWin) {
                 for (int i = 0; i < DIMENSION; i++) {
@@ -104,19 +106,6 @@ public class Level {
     }
 
     public static void userStep(String sign, int i) {
-        int x;
-        int y;
-        do {
-            if (i == 0) {
-                System.out.println("Введите координаты x y (1 - " + DIMENSION + "): ");
-            } else {
-                System.out.println("Игрок " + i + ". Введите координаты x y (1 - " + DIMENSION + "): ");
-            }
-            Scanner sc = new Scanner(System.in);
-            x = sc.nextInt() - 1;
-            y = sc.nextInt() - 1;
-        }
-        while (isCellBusy(x, y));
-        field[x][y] = sign;
+        getStep(sign, i);
     }
 }

@@ -8,11 +8,16 @@ public class Base {
     public static final String AI_SIGN = "O";
     public static final String NOT_SIGN = ".";
     public static final int DIMENSION = 3;
-    public static final String[][] field = new String[DIMENSION][DIMENSION];
+    protected static final String[][] field = new String[DIMENSION][DIMENSION];
 
     public static void userStep(String sign, int i) {
+        getStep(sign, i);
+    }
+
+    public static void getStep(String sign, int i) {
         int x;
         int y;
+
         do {
             if (i == 0) {
                 System.out.println("Введите координаты x y (1 - " + DIMENSION + "): ");
@@ -67,16 +72,16 @@ public class Base {
 
     public static boolean checkWin(String sign) {
         for (int i = 0; i < DIMENSION; i++) {
-            // проверяем строки
+            // проверяю строки
             if (checkLine(i, 0, 0, 1, sign)) {
                 return true;
             }
-            // проверяем столбцы
+            // проверяю столбцы
             if (checkLine(0, i, 1, 0, sign)) {
                 return true;
             }
         }
-        // проверяем диагонали
+        // проверяю диагональ
         if (checkLine(0, 0, 1, 1, sign)) {
             return true;
         }
@@ -84,21 +89,21 @@ public class Base {
     }
 
     public static boolean checkWin2(String sign) {
-        // проверка по строкам
+        // проверяю строки
         for (int i = 0; i < DIMENSION; i++) {
             if (field[i][0].equals(sign) && field[i][1].equals(sign) && field[i][2].equals(sign)) {
                 return true;
             }
         }
 
-        // проверка по столбцам
+        // проверяю столбцы
         for (int j = 0; j < DIMENSION; j++) {
             if (field[0][j].equals(sign) && field[1][j].equals(sign) && field[2][j].equals(sign)) {
                 return true;
             }
         }
 
-        // проверка диагоналей
+        // проверяю диагональ
         if (field[0][0].equals(sign) && field[1][1].equals(sign) && field[2][2].equals(sign)) {
             return true;
         }
